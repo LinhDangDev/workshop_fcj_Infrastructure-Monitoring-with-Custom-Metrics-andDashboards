@@ -10,7 +10,7 @@ pre : " <b> 2. </b> "
 
 Think of **cloud networking** as building the foundation for your digital house. Just like you wouldn't build a house without proper electrical wiring, plumbing, and room layouts, you can't deploy applications in the cloud without understanding how they'll communicate with each other and the outside world.
 
-In this section, we'll build a **secure, scalable network foundation** for our monitoring infrastructure. Don't worry if networking seems complex at first - we'll break it down into simple, digestible concepts with real-world analogies!ất
+In this section, we'll build a **secure, scalable network foundation** for our monitoring infrastructure. Don't worry if networking seems complex at first - we'll break it down into simple, digestible concepts with real-world analogies!
 ___
 
 #### 🌍 Understanding AWS Global Infrastructure: Your Digital Real Estate
