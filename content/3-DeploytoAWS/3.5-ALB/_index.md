@@ -50,16 +50,16 @@ For our AWS Fargate tasks, we will create a **target group of type IP addresses*
    - In the AWS Console search bar, type `EC2`
    - Select **EC2** from the dropdown
 
-![image](/images/3.5/2025-08-12_20-09-24.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-09-24.png)
 
 2\. In the EC2 Dashboard, scroll down in the left navigation panel to **Load Balancing** and select **Target groups**. Click **Create target group**.
 
-![image](/images/3.5/2025-08-12_20-10-58.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-10-58.png)
 
 3\. Configure the target type:
    - **Target type**: Select **IP addresses**
 
-![image](/images/3.5/2025-08-12_20-13-01.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-13-01.png)
 
 4\. Configure basic settings:
    - **Target group name**: Enter `QuestionBank-EC2-tg`
@@ -67,51 +67,51 @@ For our AWS Fargate tasks, we will create a **target group of type IP addresses*
    - **Port**: Enter `3001`
    - **VPC**: Select **FCJ-vpc-monitoring**
 
-![image](/images/3.5/2025-08-12_20-13-01.png)
-![image](/images/3.5/2025-08-12_20-14-45.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-13-01.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-14-45.png)
 
 5\. Configure health checks:
    - **Health check path**: Enter `/health`
 
-![image](/images/3.5/2025-08-12_20-15-37.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-15-37.png)
 
 6\. Expand **Advanced health check settings**:
    - **Unhealthy threshold**: Change to `5`
    - Leave other settings as default
 
-![image](/images/3.5/2025-08-12_20-17-38.png)
-![image](/images/3.5/2025-08-12_20-18-07.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-17-38.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-18-07.png)
 
 7\. Click **Next** to proceed to target registration.
 
-![image](/images/3.5/2025-08-12_20-19-34.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-19-34.png)
 
 8\. Skip target registration for now (we'll register targets when we create ECS services) and click **Create target group**.
 
-![image](/images/3.5/2025-08-12_20-20-07.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-20-07.png)
 
 9\. **Verify creation**: Confirm that **QuestionBank-EC2-tg** appears in your target groups list.
 
-![image](/images/3.5/2025-08-12_20-23-12.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-23-12.png)
 ___
 
 #### Create the Application Load Balancer
 
 1\. In the EC2 Dashboard, under **Load Balancing**, select **Load Balancers** and click **Create load balancer**.
 
-![image](/images/3.5/2025-08-12_20-24-43.png)
-![image](/images/3.5/2025-08-12_20-25-12.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-24-43.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-25-12.png)
 
 2\. Select **Application Load Balancer** and click **Create**.
 
-![image](/images/3.5/2025-08-12_20-25-41.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-25-41.png)
 
 3\. Configure basic settings:
   - **Load balancer name**: Enter `Questionbank-ALB`
   - **Scheme**: Select **Internet-facing**
   - **IP address type**: Leave as **IPv4**
 
-![image](/images/3.5/2025-08-12_20-27-15.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-27-15.png)
 
 4\. Configure network mapping:
 
@@ -121,24 +121,24 @@ ___
   - **fcj-public-public2-ap-southeast-02**
 
 
-![image](/images/3.5/2025-08-12_20-31-42.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-31-42.png)
 
 
 5\. Configure security:
   - **Security groups**: Select **QuestionBank-ALB-SG**
   - Remove the default security group if present
 
-![image](/images/3.5/2025-08-12_20-33-27.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-33-27.png)
 
 6\. Configure listeners and routing:
   - **Protocol**: HTTP
   - **Port**: 80
   - **Default action**: Forward to **QuestionBank-EC2-tg**
 
-![image](/images/3.5/2025-08-12_20-34-25.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-34-25.png)
 
 7\. Review all information and click **Create load balancer**.
 
-![image](/images/3.5/2025-08-12_20-37-28.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.5/2025-08-12_20-37-28.png)
 
 8\. **Verify creation**: Wait for the load balancer to become "Active" and note the DNS name for later use.

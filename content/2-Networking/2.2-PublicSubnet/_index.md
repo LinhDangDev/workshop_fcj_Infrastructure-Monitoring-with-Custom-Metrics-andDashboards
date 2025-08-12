@@ -11,13 +11,13 @@ ___
 
 1\. In the VPC Dashboard, select **Internet gateways** from the left navigation panel, then click **Create internet gateway**.
 
-![image](/images/2.2/1.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/1.png)
 
 2\. Configure the Internet Gateway:
    - **Name tag**: Enter `fcj-igw`
    - Click **Create internet gateway**
 
-![image](/images/2.2/11.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/11.png)
 
 3\. After creation, you'll see the new Internet Gateway in a "Detached" state. Click **Actions**, then select **Attach to VPC**.
 
@@ -33,20 +33,20 @@ ___
 
 1\. In the VPC Dashboard, select **Route tables** from the left navigation panel and click **Create route table**.
 
-![image](/images/2.2/2025-08-12_15-40-17.png)
-![image](/images/2.2/2025-08-12_15-44-16.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-40-17.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-44-16.png)
 
 2\. Configure the route table:
    - **Name tag**: Enter `fc    j-route-table`
    - **VPC**: Select **fcj-vpc**
    - Click **Create route table**
 
-![image](/images/2.2/2025-08-12_15-45-29.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-45-29.png)
 
 
 3\. After creation, select the new route table and click **Edit routes**.
 
-![image](/images/2.2/2025-08-12_15-48-07.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-48-07.png)
 
 4\. Add the internet route:
    - Click **Add route**
@@ -54,18 +54,18 @@ ___
    - **Target**: Select **Internet Gateway**, then choose **fcj-igw**
    - Click **Save changes**
 
-![image](/images/2.2/2025-08-12_15-47-28.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-47-28.png)
 
 5\. Associate the route table with public subnets by clicking **Actions**, then **Edit subnet associations**.
 
-![image](/images/2.2/2025-08-12_15-59-45.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-59-45.png)
 
 6\. Select the public subnets:
    - Check **fcj-subnet-public1-ap-southeast-1a**
    - Check **fcj-subnet-public1-ap-southeast-1b**
    - Click **Save associations**
 
-![image](/images/2.2/2025-08-12_15-58-42.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.2/2025-08-12_15-58-42.png)
 
 7\. **Verify configuration**: Confirm that both public subnets are now associated with the **fcj-route-table** and that the route table contains both the local route (10.10.0.0/16) and the internet route (0.0.0.0/0).
 

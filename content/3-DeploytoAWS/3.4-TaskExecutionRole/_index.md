@@ -44,11 +44,11 @@ ___
    - In the AWS Console search bar, type `IAM`
    - Select **IAM** from the dropdown
 
-![image](/images/3.4/2025-08-12_19-54-25.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.4/2025-08-12_19-54-25.png)
 
 2\. In the IAM Dashboard, select **Roles** from the left navigation panel, then click **Create role**.
 
-![image](/images/3.4/2025-08-12_19-57-04.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.4/2025-08-12_19-57-04.png)
 
 3\. Configure the trusted entity:
    - **Trusted entity type**: Select **AWS service**
@@ -56,7 +56,7 @@ ___
    - **Use case**: Select **Elastic Container Service Task**
    - Click **Next**
 
-![image](/images/3.4/2025-08-12_19-58-39.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.4/2025-08-12_19-58-39.png)
 
 4\. Attach the required policies by searching for and selecting each one:
    - **AmazonECSTaskExecutionRolePolicy** (Essential for ECS task execution)
@@ -66,8 +66,8 @@ ___
 
 After selecting all four policies, click **Next**.
 
-![image](/images/3.4/2025-08-12_20-00-44.png)
-![image](/images/3.4/2025-08-12_20-01-09.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.4/2025-08-12_20-00-44.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.4/2025-08-12_20-01-09.png)
 
 
 5\. Configure the role details:

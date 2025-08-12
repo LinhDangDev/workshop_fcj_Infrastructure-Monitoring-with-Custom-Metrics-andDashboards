@@ -12,11 +12,11 @@ ___
 
 1\. In the VPC Dashboard, under **Security** in the left navigation panel, select **Security groups**.
 
-![image](/images/2.4/2025-08-12_16-31-03.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-31-03.png)
 
 2\. Click **Create security group**.
 
-![image](/images/2.4/2025-08-12_16-33-16.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-33-16.png)
 
 3\. Configure the basic settings:
    - **Security group name**: Enter `fcj-public-sg`
@@ -24,14 +24,14 @@ ___
    - **VPC**: Select **fcj-vpc-monitoring**
 
 
-![image](/images/2.4/2025-08-12_16-34-43.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-34-43.png)
 4\. Add the first inbound rule for the core application:
    - Click **Add rule**
    - **Type**: Select **HTTP**
    - **Source**: Select **Anywhere-IPv4**
 
    This rule allows all inbound HTTP traffic from the internet through port 80.
-![image](/images/2.4/2025-08-12_16-34-43.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-34-43.png)
 5\. Add the second inbound rule for the admin application:
    - Click **Add rule**
    - **Type**: Select **Custom TCP**
@@ -40,7 +40,7 @@ ___
 
    This rule allows access to the admin application through port 81.
 
-![image](/images/2.4/2025-08-12_16-35-58.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-35-58.png)
 
 6\. Scroll down and click **Create security group**.
 
@@ -60,7 +60,7 @@ This security group will allow all inbound traffic from the public subnets secur
    - **Description**: Enter `Allows all inbound traffic from fcj-public-sg`
    - **VPC**: Select **fcj-vpc-monitoring**
 
-![image](/images/2.4/2025-08-12_16-40-49.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-40-49.png)
 
 4\. Add the inbound rule:
 
@@ -70,7 +70,7 @@ This security group will allow all inbound traffic from the public subnets secur
 
 This rule allows all traffic from resources in the public security group to reach private subnet resources.
 
-![image](/images/2.4/2025-08-12_16-41-58.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.4/2025-08-12_16-41-58.png)
 
 5\. Scroll down and click **Create security group**.
 

@@ -11,13 +11,13 @@ ___
 
 1\. In the VPC Dashboard, select **NAT gateways** from the left navigation panel and click **Create NAT gateway**.
 
-![image](/images/2.3/2025-08-12_16-08-13.png)
-![image](/images/2.3/2025-08-12_16-08-50.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-08-13.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-08-50.png)
 2\. Configure the NAT Gateway:
    - **Name**: Enter `fcj-ngw`
    - **Subnet**: Select **fcj-subnet-public1-ap-southeast-1a** (NAT gateway must be in a public subnet)
 
-![image](/images/2.3/2025-08-12_16-11-35.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-11-35.png)
 
 3\. Create the Elastic IP:
    - **Connectivity type**: Ensure **Public** is selected
@@ -35,18 +35,18 @@ Next, we will configure our private route table to route outbound traffic from t
 
 1\. In the VPC Dashboard, select **Route tables** from the left navigation panel and click **Create route table**.
 
-![image](/images/2.3/2025-08-12_16-15-57.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-15-57.png)
 
 2\. Create the route table:
    - **Name tag**: Enter `fcj-private-rtb`
    - **VPC**: Select **fcj-vpc**
    - Click **Create route table**
 
-![image](/images/2.3/2025-08-12_16-17-09.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-17-09.png)
 
 3\. After creation, select the new route table and click **Edit routes**.
 
-![image](/images/2.3/2025-08-12_16-18-02.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-18-02.png)
 
 4\. Add the NAT gateway route:
    - Click **Add route**
@@ -54,11 +54,11 @@ Next, we will configure our private route table to route outbound traffic from t
    - **Target**: Select **NAT Gateway**, then choose **fcj-ngw**
    - Click **Save changes**
 
-![image](/images/2.3/2025-08-12_16-18-57.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-18-57.png)
 
 5\. Associate the route table with private subnets by clicking **Actions**, then **Edit subnet associations**.
 
-![image](/images/2.3/2025-08-12_16-19-52.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-19-52.png)
 
 6\. Select all private and database subnets:
    - Check **fcj-subnet-private1-ap-southeast-1a**
@@ -69,6 +69,6 @@ Next, we will configure our private route table to route outbound traffic from t
    - Check **fcj-Cache-Subnet-2**
    - Click **Save associations**
 
-![image](/images/2.3/2025-08-12_16-20-46.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/2.3/2025-08-12_16-20-46.png)
 
 7\. **Verify configuration**: Confirm that all four subnets are now associated with the **fcj-private-rtb** and that the route table contains both the local route (10.10.0.0/16) and the NAT gateway route (0.0.0.0/0).

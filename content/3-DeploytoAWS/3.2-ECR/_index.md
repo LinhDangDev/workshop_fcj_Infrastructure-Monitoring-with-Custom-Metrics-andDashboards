@@ -26,21 +26,21 @@ ___
    - In the AWS Console search bar, type `ECR`
    - Select **Elastic Container Registry** from the dropdown
 
-![image](/images/3.2/2025-08-12_19-06-29.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-06-29.png)
 
 2\. Click **Create repository**.
 
-![image](/images/3.2/2025-08-12_19-11-55.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-11-55.png)
 
 3\. Configure the General settings:
    - **Repository name**: Enter `questionbank-app`
    - Leave other settings as default
 
-![image](/images/3.2/2025-08-12_19-10-41.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-10-41.png)
 
 4\. Scroll to the bottom and click **Create repository**.
 
-![image](/images/3.2/2025-08-12_19-14-49.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-14-49.png)
 
 5\. **Verify creation**: Confirm that the **fcj-registry** repository appears in your ECR console. Note the repository URI as you'll need it for pushing images.
 
@@ -114,11 +114,11 @@ ___
 
 1\. **Copy the repository URI**: In your ECR repository page, copy the **URI** of the repository. You'll need this for pushing container images.
 
-![image](/images/3.2/2025-08-12_19-22-14.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-22-14.png)
 
 2\. **Open Docker Desktop**: Click on **Docker Desktop** in the start menu in the computer.
 
-![image](/images/3.2/2025-08-12_19-21-33.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-21-33.png)
 
 3\. **Open terminal**: Enter `aws configure`.
 
@@ -127,7 +127,7 @@ ___
 - **Default region name**: Enter `ap-southeast-1`
 - **Default output format**: Enter `json`
 
-![image](/images/3.2/.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/.png)
 
 3\. **Open terminal and configure AWS CLI**: Enter the information copied from Step 3.
 
@@ -140,7 +140,7 @@ aws configure
 - **Default region name**: Enter `ap-southeast-1`
 - **Default output format**: Enter `json`
 
-![image](/images/3.2/.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/.png)
 
 ##### **Building and Pushing the Application Image**
 
@@ -176,7 +176,7 @@ aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
 ```
 
-![image](/images/3.2/2025-08-12_19-35-47.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-35-47.png)
 
 6\. **Build the application image**: Build the Docker image from your backend application.
 
@@ -190,7 +190,7 @@ docker build -t "$($ECR_REPO):$IMAGE_TAG" -f backend/Dockerfile backend
 docker build -t "$ECR_REPO:$IMAGE_TAG" -f backend/Dockerfile backend
 ```
 
-![image](/images/3.2/2025-08-12_19-38-14.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-38-14.png)
 
 7\. **Tag the image for ECR**: Tag your local image with the ECR repository URI.
 
@@ -216,17 +216,17 @@ docker push "$ECR_REGISTRY/$($ECR_REPO):$IMAGE_TAG"
 docker push "$ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG"
 ```
 
-![image](/images/3.2/2025-08-12_19-39-14.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-39-14.png)
 
 9\. **Verify your image**: Return to the ECR console and refresh your repository. You should see your image with the `latest` tag.
 
-![image](/images/3.2/2025-08-12_19-40-02.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-40-02.png)
 
 You have successfully built and pushed your container image to Amazon ECR. The image is now ready to be deployed
 
 10\. **Verify your images**: Return to the ECR console and refresh your repository. You should see both images with their respective tags.
 
-![image](/images/3.2/2025-08-12_19-40-02.png)
+![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/3.2/2025-08-12_19-40-02.png)
 
 
 Both images are now ready to be deployed to Amazon ECS.
