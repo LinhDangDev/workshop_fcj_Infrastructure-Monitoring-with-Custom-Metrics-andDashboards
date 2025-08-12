@@ -4,7 +4,7 @@ name: Deploy Hugo site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,8 +31,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.128.0
-      WORKSHOP_PATH: ${{ github.event.repository.name }}
+      HUGO_VERSION: 0.124.1
     steps:
       - name: Install Hugo CLI
         run: |
@@ -49,16 +48,13 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Change image links
-        run: |
-          find content -type f \( -name "_index.vi.md" -o -name "_index.md" \) -exec sed -i "s/](\/images\//](\/${WORKSHOP_PATH}\/images\//g" {} +
-      - name: Change home path
-        run: |
-          find layouts -type f \( -name "logo.html" -o -name "logo.html" \) -exec sed -i "s/\/fcj-workshop-home\//\/${WORKSHOP_PATH}\//g" {} +
+      - name: Replace ImageUrl
+        run: find ./content -type f -name "_index.md" -exec sed -i 's/\/images\//\/ws-deploying-spring-ecs-fargate\/images\//g' {} +
       - name: Build with Hugo
         env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
         run: |
           hugo \
             --minify \
