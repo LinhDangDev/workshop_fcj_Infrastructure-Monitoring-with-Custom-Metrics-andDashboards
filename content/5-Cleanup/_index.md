@@ -12,13 +12,16 @@ This section covers the cleanup process for all AWS resources created during the
 **Important**: Follow the cleanup steps in the exact order provided to avoid dependency conflicts. Some resources cannot be deleted if other resources are still using them.
 {{% /notice %}}
 
-{{% children %}}
+{{% children /%}}
 
 ## Overview
 
-#### Step 1: Stop and Delete ECS Services
+The cleanup process consists of two main phases:
 
-1\. Navigate to **Amazon Elastic Container Service (ECS)** in the AWS Console.
+1. **Turn Off Flyway** (Section 5.1): Disable database migrations in the application
+2. **Resource Cleanup** (Section 5.2): Remove all AWS resources in the proper order
+
+This ensures a clean and complete removal of all workshop resources while avoiding dependency conflicts.
 
 ![image](/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/images/5.1/2025-08-12_21-31-53.png)
 
