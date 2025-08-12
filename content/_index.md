@@ -39,7 +39,7 @@ This workshop might take up to **3 hours** to complete.
 
 **2\. [Networking Configuration](2-networking/)**
 
-**3\. [Cluster Setup](3-cluster/)**
+**3\. [Deploy to AWS](3-deploytoaws/)**
 
 **4\. [CloudWatch Metrics and Dashboards](4-cloudwatch/)**
 
