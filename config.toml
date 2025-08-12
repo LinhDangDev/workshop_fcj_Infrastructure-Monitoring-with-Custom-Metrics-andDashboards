@@ -1,6 +1,9 @@
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 
+# Base URL for GitHub Pages
+baseURL = "https://linhdangdev15723.me/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards/"
+
 # For search functionality
 [outputs]
 home = ["HTML", "RSS", "JSON"]
@@ -18,7 +21,7 @@ disableNextPrev = false
 
 [Languages]
 [Languages.en]
-title = "Infrastructure as Code: Introduction to CloudFormation"
+title = "Infrastructure Monitoring with Custom Metrics and Dashboards"
 weight = 1
 languageName = "English"
 

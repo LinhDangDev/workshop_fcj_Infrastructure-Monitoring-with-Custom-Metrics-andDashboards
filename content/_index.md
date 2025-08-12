@@ -44,11 +44,3 @@ This workshop might take up to **3 hours** to complete.
 **4\. [CloudWatch Metrics and Dashboards](4-cloudwatch/)**
 
 **5\. [Cleanup](5-cleanup/):**
-
-#### Overall Architecture - Application & Networking Flow
-
-![archi-user](/images/archi-user.svg)
-
-#### Overall Architecture - Developer Flow
-
-![archi-dev](/images/archi-dev.svg)
