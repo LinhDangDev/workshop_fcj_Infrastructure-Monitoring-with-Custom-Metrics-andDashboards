@@ -49,7 +49,7 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Replace ImageUrl
-        run: find ./content -type f -name "_index.md" -exec sed -i 's/\/images\//\/ws-deploying-spring-ecs-fargate\/images\//g' {} +
+        run: find ./content -type f -name "_index.md" -exec sed -i 's/\/images\//\/workshop_fcj_Infrastructure-Monitoring-with-Custom-Metrics-andDashboards\/images\//g' {} +
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
