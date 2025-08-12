@@ -2,17 +2,19 @@
 title : "Cleanup"
 date: "2025-08-12"
 weight : 5
-chapter : false
+chapter : true
 pre : " <b> 5. </b> "
 ---
 
-#### Cleanup AWS Resources in Proper Order
+This section covers the cleanup process for all AWS resources created during the workshop.
 
 {{% notice warning %}}
 **Important**: Follow the cleanup steps in the exact order provided to avoid dependency conflicts. Some resources cannot be deleted if other resources are still using them.
 {{% /notice %}}
 
-## Phase 1: Application Layer Cleanup
+{{% children %}}
+
+## Overview
 
 #### Step 1: Stop and Delete ECS Services
 
